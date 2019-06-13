@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false});
     User.associate = function(models) {
     // associations can be defined here
-    models.User.hasMany(models.Comment);
-    models.User.hasMany(models.Favorite);
-    models.User.hasMany(models.Article);
   };
   return User;
 };

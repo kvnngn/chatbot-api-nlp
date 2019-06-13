@@ -1,54 +1,54 @@
 var util = require("util");
 
-function CauSportsNewsError() {
-    Error.captureStackTrace(this, CauSportsNewsError);
-    this.name = "CauSportsNewsError";
-    this.flag = "CauSportsNewsError_flag";
-    this.message = "CauSportsNewsError_message";
+function linkbotError() {
+    Error.captureStackTrace(this, linkbotError);
+    this.name = "linkbotError";
+    this.flag = "linkbotError_flag";
+    this.message = "linkbotError_message";
     this.statusCode = 404;
 }
 
-util.inherits(CauSportsNewsError, Error);
-exports.CauSportsNewsError = CauSportsNewsError;
+util.inherits(linkbotError, Error);
+exports.linkbotError = linkbotError;
 
 
 function NotFound(message) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "NotFound";
     this.flag = "NOT_FOUND";
     this.message = message || "";
     this.statusCode = 404;
 }
 
-util.inherits(NotFound, CauSportsNewsError);
+util.inherits(NotFound, linkbotError);
 exports.NotFound = NotFound;
 
 
 function InvalidAction(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "NotFound";
     this.flag = flag;
     this.statusCode = 404;
 }
 
-util.inherits(InvalidAction, CauSportsNewsError);
+util.inherits(InvalidAction, linkbotError);
 exports.NotFound = InvalidAction;
 
 
 function Db(message) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Db";
     this.flag = "DB_ERROR";
     this.message = message || "";
     this.statusCode = 500;
 }
 
-util.inherits(Db, CauSportsNewsError);
+util.inherits(Db, linkbotError);
 exports.Db = Db;
 
 
 function Sequelize(err) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Sequelize";
     this.flag = "SEQUELIZE_ERROR_" + err.name;
     this.message = "Sequelize error: " + err.message || "";
@@ -58,33 +58,33 @@ function Sequelize(err) {
     }
 }
 
-util.inherits(Sequelize, CauSportsNewsError);
+util.inherits(Sequelize, linkbotError);
 exports.Sequelize = Sequelize;
 
 function Sendinblue(err) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Sendinblue";
     this.flag = "SENDINBLUE_ERROR_" + err.message;
     this.message = "Sendinblue error: " + err.code;
     this.statusCode = 500;
 }
 
-util.inherits(Sendinblue, CauSportsNewsError);
+util.inherits(Sendinblue, linkbotError);
 exports.Sendinblue = Sendinblue;
 
 function Demo() {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "DEMO_MODE";
     this.flag = "DEMO_MODE";
     this.message = "Mode Demo";
     this.statusCode = 500;
 }
 
-util.inherits(Demo, CauSportsNewsError);
+util.inherits(Demo, linkbotError);
 exports.Demo = Demo;
 
 function Stripe(err) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Stripe";
     this.flag = "STRIPE_ERROR_" + err.type;
     this.type = err.rawType;
@@ -128,124 +128,124 @@ function Stripe(err) {
     console.log(this);
 }
 
-util.inherits(Stripe, CauSportsNewsError);
+util.inherits(Stripe, linkbotError);
 exports.Stripe = Stripe;
 
 
 function MissingParams(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "MissingParams";
     this.flag = "MISSING_PARAM_" + flag;
     this.message = this.flag;
     this.statusCode = 400;
 }
 
-util.inherits(MissingParams, CauSportsNewsError);
+util.inherits(MissingParams, linkbotError);
 exports.MissingParams = MissingParams;
 
 
 function InvalidParam(param, value) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "InvalidParam";
     this.flag = "INVALID_PARAM_" + param;
     this.message = "The parameter " + param + " has an invalid value of \"" + value + "\"";
     this.statusCode = 400;
 }
 
-util.inherits(InvalidParam, CauSportsNewsError);
+util.inherits(InvalidParam, linkbotError);
 exports.InvalidParam = InvalidParam;
 
 
 function IncorrectParam(flag, message) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "IncorrectParam";
     this.flag = "INCORRECT_PARAM_" + flag;
     this.message = message;
     this.statusCode = 400;
 }
 
-util.inherits(IncorrectParam, CauSportsNewsError);
+util.inherits(IncorrectParam, linkbotError);
 exports.IncorrectParam = IncorrectParam;
 
 
 function AlgorithmError(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "AlgorithmError";
     this.flag = "ALGORITHM_ERROR_" + flag;
     this.message = this.flag;
     this.statusCode = 400;
 }
 
-util.inherits(AlgorithmError, CauSportsNewsError);
+util.inherits(AlgorithmError, linkbotError);
 exports.AlgorithmError = AlgorithmError;
 
 
 function AuthFailed(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "AuthFailed";
     this.flag = "AUTH_FAILED_" + flag;
     this.message = this.flag;
     this.statusCode = 401;
 }
 
-util.inherits(AuthFailed, CauSportsNewsError);
+util.inherits(AuthFailed, linkbotError);
 exports.AuthFailed = AuthFailed;
 
 
 function PassportFailed() {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "PassportFailed";
     this.flag = "PASSPORT_FAILED";
     this.message = this.flag;
     this.statusCode = 401;
 }
 
-util.inherits(PassportFailed, CauSportsNewsError);
+util.inherits(PassportFailed, linkbotError);
 exports.PassportFailed = PassportFailed;
 
 
 function Unique(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Unique";
     this.flag = "UNIQUE_" + flag;
     this.message = this.flag;
     this.statusCode = 400;
 }
 
-util.inherits(Unique, CauSportsNewsError);
+util.inherits(Unique, linkbotError);
 exports.Unique = Unique;
 
 
 function Geocode(message, flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Geocode";
     this.flag = flag || "GEOCODE_ERR";
     this.message = message || "";
     this.statusCode = 400;
 }
 
-util.inherits(Geocode, CauSportsNewsError);
+util.inherits(Geocode, linkbotError);
 exports.Geocode = Geocode;
 
 function Frames(flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Frames";
     this.flag = "FRAMES_" + flag;
     this.statusCode = 400;
     this.message = this.flag;
 }
 
-util.inherits(Frames, CauSportsNewsError);
+util.inherits(Frames, linkbotError);
 exports.Frames = Frames;
 
 
 function Mail(message, flag) {
-    CauSportsNewsError.call(this);
+    linkbotError.call(this);
     this.name = "Mail";
     this.flag = flag || "MAIL_ERR";
     this.message = message || "";
     this.statusCode = 500;
 }
 
-util.inherits(Mail, CauSportsNewsError);
+util.inherits(Mail, linkbotError);
 exports.Mail = Mail;

@@ -5,12 +5,12 @@ var fs = require("fs");
 module.exports = {
     up: function(queryInterface, Sequelize) {
 
-        return checkIfCauSportsNewsDatabaseExists()
+        return checkIflinkbotDatabaseExists()
         .then(function(res) {
             if(!res) { return initializeDatabaseAsFirstTime(); }
         });
 
-        function checkIfCauSportsNewsDatabaseExists() {
+        function checkIflinkbotDatabaseExists() {
             return queryInterface.sequelize.query("SELECT * FROM `SequelizeMeta`", {type: Sequelize.QueryTypes.SELECT})
             .then(function(metas) {
                 return metas.length > 0;

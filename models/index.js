@@ -40,10 +40,6 @@ function initSequelize() {
 
 function loadModels() {
     models.User= sequelize["import"](path.join(__dirname, "./user"));
-    models.Comment= sequelize["import"](path.join(__dirname, "./comment"));
-    models.Article= sequelize["import"](path.join(__dirname, "./article"));
-    models.Favorite= sequelize["import"](path.join(__dirname, "./favorite"));
-    models.Result= sequelize["import"](path.join(__dirname, "./result"));
 }
 
 function associateModels() {

@@ -13,7 +13,7 @@
 
 ##Add column / model or do the migration
 
-/!\ It is mandatory to create the database "causportsnews" for cau-sports-news-api !
+/!\ It is mandatory to create the database "linkbot" for cau-sports-news-api !
 
 -  sequelize db:migrate
 

@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport(config.smtp);
 
 exports.send = function(template, input) {
     const mail = {
-        from: input.from ? input.from : "L'équipe Cau Sports News <contact.causportsnews@gmail.com>",
+        from: input.from ? input.from : "L'équipe Cau Sports News <contact.linkbot@gmail.com>",
         to: input.to,
         subject: input.subject ? input.subject : "default subject",
         html: "",
