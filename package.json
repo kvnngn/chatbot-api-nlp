@@ -30,7 +30,7 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "semantic": "0.0.1",
-    "sequelize": "^4.36.1",
+    "sequelize": "^5.15.1",
     "serve-favicon": "~2.4.5",
     "term-vector": "^1.0.0",
     "twig": "^1.12.0",
